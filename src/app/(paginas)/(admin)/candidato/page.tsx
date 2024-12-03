@@ -1,4 +1,5 @@
 "use client";
+import ForcaUsuarioLogado from "@/components/auth/ForcaUsuarioLogado";
 import FormularioCandidato from "@/components/candidato/FormularioCandidato";
 import ListaCandidatos from "@/components/candidato/ListaCandidatos";
 import candidatosIniciais from "@/data/constants/candidatos";
@@ -29,7 +30,7 @@ export default function PaginaCandidato() {
     setCandidatoSelecionado(null);
   }
   return (
-    <div>
+    <ForcaUsuarioLogado>
       {candidatoSelecionados ? (
         <FormularioCandidato
           candidato={candidatoSelecionados}
@@ -51,6 +52,6 @@ export default function PaginaCandidato() {
           />
         </div>
       )}
-    </div>
+    </ForcaUsuarioLogado>
   );
 }
