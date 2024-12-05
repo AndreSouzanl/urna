@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useContext } from "react";
 
 export default function Cabecalho() {
-  const { usuario } = useContext(ContextoAutenticacao);
+  const { usuario, logout } = useContext(ContextoAutenticacao);
   return (
     <header className=" flex justify-between items-center h-24 bg-zinc-950 p-5">
       <div className="flex justify-between items-center mx-auto max-w-7xl w-full">
@@ -18,11 +18,18 @@ export default function Cabecalho() {
               <Link href="/eleitor">Eleitor</Link>
             </>
           )}
-          <button>
+        
+          {usuario === null ? (
+
             <Link href="/auth" className="botao azul">
               Login
             </Link>
-          </button>
+          ): (
+            <button onClick={logout} className="botao vermelho">
+               Sair
+            </button>
+          )}
+       
         </nav>
       </div>
     </header>
