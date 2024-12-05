@@ -18,18 +18,16 @@ export default function Cabecalho() {
               <Link href="/eleitor">Eleitor</Link>
             </>
           )}
-        
-          {usuario === null ? (
 
+          {usuario === null ? (
             <Link href="/auth" className="botao azul">
               Login
             </Link>
-          ): (
+          ) : (
             <button onClick={logout} className="botao vermelho">
-               Sair
+              Sair
             </button>
           )}
-       
         </nav>
       </div>
     </header>
