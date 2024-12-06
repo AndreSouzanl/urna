@@ -3,6 +3,7 @@ import { loginUsuario, Usuario } from "@urna/auth";
 import { useRouter } from "next/navigation";
 
 import { createContext, useState } from "react";
+import useApi from "../hooks/useAPI";
 
 export interface ContextoAutenticacaoProps {
   usuario: Partial<Usuario> | null;
@@ -19,8 +20,12 @@ export function ProvedorAutenticacao(props: any) {
   const [usuario, setUsuario] = useState<Partial<Usuario> | null>(null);
   const router = useRouter();
 
+  const  {httpGet}  = useApi();
+
   async function cadastrar(usuario: Partial<Usuario>) {
-    alert("Cadasto realizado com sucesso");
+    const resultado = await httpGet('');
+    console.log(resultado)
+    alert(resultado);
     console.log(usuario);
   }
 
